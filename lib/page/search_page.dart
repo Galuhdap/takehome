@@ -74,7 +74,7 @@ class _SearchPageState extends State<SearchPage> {
                                     ),
                                   );
                                   favoriteController.cekFavorit(
-                                      idBuku: data.id);
+                                      idfav: data.id);
                                 },
                               );
                             },

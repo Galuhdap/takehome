@@ -90,7 +90,7 @@ class _DetailPageState extends State<DetailPage> {
                         () => IconButton(
                           onPressed: () {
                             favoriteController.insert(
-                                idbuku: widget.cartoonModel!.id);
+                                idfav: widget.cartoonModel!.id);
                         
                           },
                           icon: favoriteController.favorite.value

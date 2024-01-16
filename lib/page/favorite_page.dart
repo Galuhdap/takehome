@@ -60,7 +60,7 @@ class _FavoritPageState extends State<FavoritPage> {
                               cartoonModel: data,
                             ),
                           );
-                          favoriteController.cekFavorit(idBuku: data.id);
+                          favoriteController.cekFavorit(idfav: data.id);
                         },
                         contWidget: InkWell(
                           onTap: () {

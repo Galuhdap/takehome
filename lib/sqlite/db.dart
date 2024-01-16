@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-// import 'package:path/path.dart';
 
 class DatabaseService {
-  final String _databaseName = 'favorite.db';
+  final String _databaseName = 'favor.db';
 
   final int _databaseversion = 2;
 
@@ -31,6 +30,6 @@ class DatabaseService {
 
   Future _onCreate(Database db, int version) async {
     await db.execute(
-        '''CREATE TABLE $table1 (id INTEGER PRIMARY KEY, id_buku INTEGER NULL)''');
+        '''CREATE TABLE $table1 (id INTEGER PRIMARY KEY, id_fav INTEGER NULL)''');
   }
 }

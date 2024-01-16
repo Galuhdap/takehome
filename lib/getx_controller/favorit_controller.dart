@@ -18,13 +18,13 @@ class FavoriteController extends GetxController {
     super.onInit();
   }
 
-  Future insert({required int idbuku}) async {
+  Future insert({required int idfav}) async {
     final Database database = await DatabaseService().database();
     final favorites = await database
-        .rawQuery('SELECT * FROM fav WHERE id_buku = ?', [idbuku]);
+        .rawQuery('SELECT * FROM fav WHERE id_fav = ?', [idfav]);
     if (favorites.isEmpty) {
       favorite.toggle();
-      await database.insert('fav', {'id_buku': idbuku});
+      await database.insert('fav', {'id_fav': idfav});
       await allData();
     } else {
       Get.snackbar(
@@ -46,7 +46,7 @@ class FavoriteController extends GetxController {
 
     favoriteBooks = (response.data['results'] as List<dynamic>)
         .where((item) =>
-            data.map((dataItem) => dataItem['id_buku']).contains(item['id']))
+            data.map((dataItem) => dataItem['id_fav']).contains(item['id']))
         .map((item) => CartoonModel.fromJson({...item, 'favorite': true}))
         .toList();
     update();
@@ -54,15 +54,15 @@ class FavoriteController extends GetxController {
 
   Future delete({required int idParams}) async {
     final Database database = await DatabaseService().database();
-    await database.delete('fav', where: 'id_buku = ?', whereArgs: [idParams]);
+    await database.delete('fav', where: 'id_fav = ?', whereArgs: [idParams]);
     await allData();
     update();
   }
 
-  void cekFavorit({required int idBuku}) async {
+  void cekFavorit({required int idfav}) async {
     final Database database = await DatabaseService().database();
     final favorites = await database
-        .rawQuery('SELECT * FROM fav WHERE id_buku = ?', [idBuku]);
+        .rawQuery('SELECT * FROM fav WHERE id_fav = ?', [idfav]);
     favorite.value = favorites.isNotEmpty;
     update();
   }

@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                               cartoonModel: data,
                             ),
                           );
-                          favoriteController.cekFavorit(idBuku: data.id);
+                          favoriteController.cekFavorit(idfav: data.id);
                         },
                       );
                     },
